@@ -390,9 +390,10 @@ export const SettingsTree = forwardRef<
           <View className="gap-6">
             <View className="rounded-[28px] bg-white dark:bg-zinc-900 px-5 py-5">
               <NouText className="text-[11px] uppercase tracking-[0.18em] text-zinc-600 dark:text-zinc-500">
-                NouTube
+                MyTube
               </NouText>
               <NouText className="mt-2 text-xl font-semibold tracking-tight">v{version}</NouText>
+              <NouText className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Developer: Abu Huraira</NouText>
             </View>
 
             {updateSupported ? (
@@ -424,7 +425,13 @@ export const SettingsTree = forwardRef<
 
             <SettingsSection label={t('about.code')}>
               <View className={surfaceCls}>
-                <SettingsExternalRow title="GitHub" detail="github.com/nonbili/NouTube" href={repo} icon="code" isLast />
+                <SettingsExternalRow
+                  title="Upstream source"
+                  detail="github.com/nonbili/NouTube"
+                  href={repo}
+                  icon="code"
+                  isLast
+                />
               </View>
             </SettingsSection>
 

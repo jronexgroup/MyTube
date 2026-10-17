@@ -124,7 +124,7 @@ const getContentSettingsSnapshot = () => {
     pictureInPicture,
     showDislikes,
     showOriginalVideoTitle,
-    doubleTapToToggleHeader,
+    tripleTapToToggleHeader,
     translateComments,
     translationTargetLanguage,
     replaceWatchNavigation,
@@ -139,7 +139,7 @@ const getContentSettingsSnapshot = () => {
     pictureInPicture,
     showDislikes,
     showOriginalVideoTitle,
-    doubleTapToToggleHeader,
+    tripleTapToToggleHeader,
     translateComments: !isWeb && translateComments && Boolean(translationTargetLanguage),
     replaceWatchNavigation,
     captionStyle: useSystemCaptionStyle ? getSystemCaptionStyle() : null,
@@ -343,7 +343,7 @@ const DesktopTabView: React.FC<{
   useObserveEffect(settings$.pictureInPicture, () => syncSettingsToWebview())
   useObserveEffect(settings$.showDislikes, () => syncSettingsToWebview())
   useObserveEffect(settings$.showOriginalVideoTitle, () => syncSettingsToWebview())
-  useObserveEffect(settings$.doubleTapToToggleHeader, () => syncSettingsToWebview())
+  useObserveEffect(settings$.tripleTapToToggleHeader, () => syncSettingsToWebview())
   useObserveEffect(userStyles$, () => syncUserStylesToWebview())
   useObserveEffect(blocklist$, () => syncBlocklistToWebview())
   useEffect(() => {
@@ -394,7 +394,7 @@ export const MainPageContent: React.FC<{ contentJs: string }> = ({ contentJs }) 
   const isYTMusic = useValue(settings$.isYTMusic)
   const autoHideHeader = useValue(settings$.autoHideHeader)
   const hideToolbarWhenScrolled = useValue(settings$.hideToolbarWhenScrolled)
-  const doubleTapToToggleHeader = useValue(settings$.doubleTapToToggleHeader)
+  const tripleTapToToggleHeader = useValue(settings$.tripleTapToToggleHeader)
   const translateComments = useValue(settings$.translateComments)
   const translationTargetLanguage = useValue(settings$.translationTargetLanguage)
   const headerPosition = useValue(settings$.headerPosition)
@@ -461,11 +461,19 @@ export const MainPageContent: React.FC<{ contentJs: string }> = ({ contentJs }) 
     desktopMode,
   )
   const getNoutube = useCallback(() => ui$.webview.get() || nativeRef.current, [])
-  const nativeDoubleTapHeader = isAndroid && doubleTapToToggleHeader
+  const nativeTripleTapHeader = isAndroid && tripleTapToToggleHeader
   // Native has no vertical sidebar layout, so the toolbar overlays the page in
   // portrait and landscape alike.
-  const nativeHeaderOverlays = !isWeb && (autoHideHeader || hideToolbarWhenScrolled || nativeDoubleTapHeader)
+  const nativeHeaderOverlays = !isWeb && (autoHideHeader || hideToolbarWhenScrolled || nativeTripleTapHeader)
   const nativeHeaderInset = nativeHeaderOverlays && headerShown && !pictureInPicture ? headerHeight : 0
+
+  // With the edge gesture enabled the toolbar starts hidden and is revealed by
+  // triple-tapping the top or bottom edge.
+  useEffect(() => {
+    if (isAndroid) {
+      ui$.headerShown.set(!tripleTapToToggleHeader)
+    }
+  }, [tripleTapToToggleHeader])
 
   useEffect(() => {
     if (isWeb) {
@@ -643,9 +651,9 @@ export const MainPageContent: React.FC<{ contentJs: string }> = ({ contentJs }) 
           if (!isForeground) break
           onScroll({ dy: data.dy, y: data.y, autoHideHeader, hideToolbarWhenScrolled })
           break
-        case 'header-double-tap':
+        case 'header-triple-tap':
           if (!isForeground) break
-          if (isAndroid && doubleTapToToggleHeader) {
+          if (isAndroid && tripleTapToToggleHeader) {
             ui$.headerShown.set(!ui$.headerShown.get())
           }
           break
@@ -809,7 +817,7 @@ export const MainPageContent: React.FC<{ contentJs: string }> = ({ contentJs }) 
     },
     [
       autoHideHeader,
-      doubleTapToToggleHeader,
+      tripleTapToToggleHeader,
       translateComments,
       translationTargetLanguage,
       hideShorts,
@@ -979,7 +987,7 @@ export const MainPageContent: React.FC<{ contentJs: string }> = ({ contentJs }) 
   useObserveEffect(settings$.pictureInPicture, () => syncSettingsToWebview())
   useObserveEffect(settings$.showDislikes, () => syncSettingsToWebview())
   useObserveEffect(settings$.showOriginalVideoTitle, () => syncSettingsToWebview())
-  useObserveEffect(settings$.doubleTapToToggleHeader, () => syncSettingsToWebview())
+  useObserveEffect(settings$.tripleTapToToggleHeader, () => syncSettingsToWebview())
   useObserveEffect(settings$.translateComments, () => syncSettingsToWebview())
   useObserveEffect(settings$.translationTargetLanguage, () => syncSettingsToWebview())
   useObserveEffect(settings$.useSystemCaptionStyle, () => syncSettingsToWebview())

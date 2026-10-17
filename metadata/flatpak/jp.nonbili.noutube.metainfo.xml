@@ -2,11 +2,11 @@
 <component type="desktop-application">
   <id>jp.nonbili.noutube</id>
 
-  <name>NouTube</name>
+  <name>MyTube</name>
   <summary>YouTube and YouTube Music in a single app</summary>
 
   <developer id="jp.nonbili">
-    <name>Nonbili Inc.</name>
+    <name>Abu Huraira</name>
   </developer>
 
   <metadata_license>CC-BY-SA-4.0</metadata_license>
@@ -102,7 +102,7 @@
           <li>Open downloaded video by clicking it in download history</li>
           <li>Support passing cookies to yt-dlp</li>
           <li>Support hiding the Ask Gemini button</li>
-          <li>Reorganize settings into YouTube and NouTube preferences</li>
+          <li>Reorganize settings into YouTube and MyTube preferences</li>
           <li>Improve bookmark library layout and support moving bookmarks via menu</li>
         </ul>
       </description>

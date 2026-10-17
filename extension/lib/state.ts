@@ -11,7 +11,7 @@ export interface ContentSettings {
   miniPlayer: boolean
   showDislikes: boolean
   showOriginalVideoTitle: boolean
-  doubleTapToToggleHeader: boolean
+  tripleTapToToggleHeader: boolean
   translateComments: boolean
   replaceWatchNavigation: boolean
   captionStyle: null

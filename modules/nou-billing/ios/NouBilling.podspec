@@ -2,8 +2,8 @@ Pod::Spec.new do |s|
   s.name           = 'NouBilling'
   s.version        = '1.0.0'
   s.summary        = 'StoreKit purchases for NouTube Sync.'
-  s.description    = 'StoreKit purchases for NouTube Sync.'
-  s.author         = 'Nonbili'
+  s.description    = 'StoreKit purchases for MyTube Sync.'
+  s.author         = 'Abu Huraira'
   s.homepage       = 'https://github.com/rnons/noutube'
   s.platforms      = { :ios => '16.4' }
   s.swift_version  = '5.9'

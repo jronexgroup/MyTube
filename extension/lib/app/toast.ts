@@ -5,7 +5,7 @@
  */
 export function showToast(msg: string) {
   if (typeof document === 'undefined') {
-    console.log('[NouTube]', msg)
+    console.log('[MyTube]', msg)
     return
   }
 

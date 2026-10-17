@@ -1,13 +1,13 @@
 {
-  "name": "noutube-desktop",
-  "productName": "NouTube",
+  "name": "mytube-desktop",
+  "productName": "MyTube",
   "version": "0.3.1",
   "description": "YouTube and YouTube Music in a single app",
   "main": "./out/main/index.js",
-  "author": "Nonbili Inc.",
+  "author": "Abu Huraira",
   "homepage": "https://github.com/nonbili/NouTube",
   "scripts": {
-    "preinstall": "touch ../node_modules/noutube",
+    "preinstall": "touch ../node_modules/mytube",
     "format": "prettier --write .",
     "lint": "eslint --cache .",
     "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false -w",
@@ -45,7 +45,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
-    "noutube": "link:noutube",
+    "mytube": "link:mytube",
     "react-hot-toast": "^2.5.2",
     "vite": "^7.0.6",
     "vite-plugin-react-native-web": "^2.2.1"

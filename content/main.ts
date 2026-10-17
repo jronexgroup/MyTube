@@ -90,7 +90,7 @@ async function initObserver() {
   handleMenu()
   installBlocklistFilter()
   installDislikeCount()
-  installDoubleTapGestures()
+  installTripleTapGestures()
   installFullscreenControls()
   installCommentTranslateButtons()
   installEncodedAuthorNameFix()
@@ -101,17 +101,22 @@ async function initObserver() {
   pinchToZoom()
 }
 
-function installDoubleTapGestures() {
+function installTripleTapGestures() {
   if (!window.isAndroid) {
     return
   }
 
-  const root = window as Window & typeof globalThis & { __noutubeDoubleTapGesturesInit?: boolean }
-  if (root.__noutubeDoubleTapGesturesInit) {
+  const root = window as Window & typeof globalThis & { __noutubeTripleTapGesturesInit?: boolean }
+  if (root.__noutubeTripleTapGesturesInit) {
     return
   }
-  root.__noutubeDoubleTapGesturesInit = true
+  root.__noutubeTripleTapGesturesInit = true
 
+  const EDGE_SIZE = 96
+  const TAP_INTERVAL_MS = 450
+  const TAP_DISTANCE = 72
+
+  let tapCount = 0
   let lastTapAt = 0
   let lastTapX = 0
   let lastTapY = 0
@@ -145,31 +150,39 @@ function installDoubleTapGestures() {
         return
       }
       if (event.changedTouches.length !== 1) return
-      // In fullscreen the toolbar is hidden anyway and the player owns double-tap seeking.
+      // In fullscreen the toolbar is hidden anyway and the player owns taps.
       if (isFullscreen()) {
-        lastTapAt = 0
+        tapCount = 0
         return
       }
+
       const touch = event.changedTouches[0]
+      const nearEdge = touch.clientY <= EDGE_SIZE || touch.clientY >= window.innerHeight - EDGE_SIZE
+      if (!nearEdge) {
+        tapCount = 0
+        return
+      }
+
       const now = Date.now()
       const dx = touch.clientX - lastTapX
       const dy = touch.clientY - lastTapY
-      const isDoubleTap = now - lastTapAt <= 300 && dx * dx + dy * dy <= 48 * 48
-
+      const continued = now - lastTapAt <= TAP_INTERVAL_MS && dx * dx + dy * dy <= TAP_DISTANCE * TAP_DISTANCE
+      tapCount = continued ? tapCount + 1 : 1
       lastTapAt = now
       lastTapX = touch.clientX
       lastTapY = touch.clientY
 
-      if (!isDoubleTap) return
+      if (tapCount < 3) return
+      tapCount = 0
       lastTapAt = 0
 
       const eventTarget = event.target instanceof Element ? event.target : null
       const target = eventTarget || document.elementFromPoint(touch.clientX, touch.clientY)
       if (!target || isIgnored(target)) return
       const settings = window.NouTube?.getSettings?.()
-      if (settings?.doubleTapToToggleHeader) {
+      if (settings?.tripleTapToToggleHeader) {
         event.preventDefault()
-        emit('header-double-tap')
+        emit('header-triple-tap')
       }
     },
     { passive: false, capture: true },

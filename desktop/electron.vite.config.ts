@@ -27,13 +27,13 @@ export default defineConfig({
     plugins: [externalizeDepsPlugin()],
     resolve: {
       alias: {
-        '@': 'noutube',
+        '@': 'mytube',
         main: resolve('src/main'),
       },
     },
   },
   preload: {
-    plugins: [externalizeDepsPlugin({ exclude: ['noutube'] })],
+    plugins: [externalizeDepsPlugin({ exclude: ['mytube'] })],
   },
   renderer: {
     define: {
@@ -41,7 +41,7 @@ export default defineConfig({
     },
     resolve: {
       alias: {
-        '@': 'noutube',
+        '@': 'mytube',
         '@renderer': resolve('src/renderer'),
         main: resolve('src/main'),
         'expo-modules-core-polyfill': resolve('../node_modules/expo-modules-core/src/polyfill/index.web.ts'),

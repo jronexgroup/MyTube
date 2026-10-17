@@ -3,7 +3,7 @@ import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-na
 
 export function useHeaderAnimation({
   autoHideHeader,
-  doubleTapToToggleHeader,
+  tripleTapToToggleHeader,
   headerHeight,
   headerPosition,
   headerShown,
@@ -11,7 +11,7 @@ export function useHeaderAnimation({
   isSidebarLayout,
 }: {
   autoHideHeader: boolean
-  doubleTapToToggleHeader: boolean
+  tripleTapToToggleHeader: boolean
   headerHeight: number
   headerPosition: 'top' | 'bottom'
   headerShown: boolean
@@ -21,10 +21,10 @@ export function useHeaderAnimation({
   const translateY = useSharedValue(0)
 
   useEffect(() => {
-    const canHide = autoHideHeader || hideToolbarWhenScrolled || doubleTapToToggleHeader
+    const canHide = autoHideHeader || hideToolbarWhenScrolled || tripleTapToToggleHeader
     // The toolbar only stops sliding away when it is the desktop vertical
     // sidebar; a landscape phone still gets a horizontal bar that should hide.
-    const shouldHide = (!isSidebarLayout || doubleTapToToggleHeader) && canHide && !headerShown
+    const shouldHide = (!isSidebarLayout || tripleTapToToggleHeader) && canHide && !headerShown
     const hiddenOffset = headerPosition === 'bottom' ? headerHeight : -headerHeight
     const next = shouldHide ? hiddenOffset : 0
     translateY.value = withTiming(next)
@@ -32,7 +32,7 @@ export function useHeaderAnimation({
     headerShown,
     headerHeight,
     autoHideHeader,
-    doubleTapToToggleHeader,
+    tripleTapToToggleHeader,
     hideToolbarWhenScrolled,
     headerPosition,
     isSidebarLayout,

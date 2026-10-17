@@ -508,7 +508,7 @@ object NouDiscord {
                   JSONObject()
                     .put("os", "Android")
                     .put("browser", "Discord Client")
-                    .put("device", "noutube")
+                    .put("device", "MyTube")
                 )
             )
           }

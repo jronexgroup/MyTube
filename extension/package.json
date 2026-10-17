@@ -1,7 +1,8 @@
 {
-  "name": "noutube-extension",
+  "name": "mytube-extension",
   "version": "0.7.0",
   "private": true,
+  "author": "Abu Huraira",
   "type": "module",
   "scripts": {
     "dev": "wxt",

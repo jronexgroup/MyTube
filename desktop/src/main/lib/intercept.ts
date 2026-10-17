@@ -6,8 +6,8 @@ import {
   transformPlayerResponse,
   transformReelResponse,
   transformSearchResponse,
-} from 'noutube/lib/intercept'
-import { createDefaultBlocklistSnapshot, normalizeBlocklist, type BlocklistSnapshot } from 'noutube/lib/blocklist'
+} from 'mytube/lib/intercept'
+import { createDefaultBlocklistSnapshot, normalizeBlocklist, type BlocklistSnapshot } from 'mytube/lib/blocklist'
 
 let currentBlocklist = createDefaultBlocklistSnapshot()
 // Ad blocking is opt-out and separate from the interception itself, which the

@@ -650,7 +650,7 @@ export const SettingsUserStylesContent = () => {
                     multiline
                     scrollEnabled
                     onChangeText={(js) => setScriptDraft((value) => (value ? { ...value, js } : value))}
-                    placeholder={`document.title = 'noutube'`}
+                    placeholder={`document.title = 'mytube'`}
                     placeholderTextColor={tw('zinc-500')}
                     style={{
                       height: 300,
@@ -794,7 +794,7 @@ export const SettingsUserStylesContent = () => {
                   onFocus={() => setCodeFocused(true)}
                   onBlur={() => setCodeFocused(false)}
                   onChangeText={(js) => setScriptDraft((value) => (value ? { ...value, js } : value))}
-                  placeholder={`document.title = 'noutube'`}
+                  placeholder={`document.title = 'mytube'`}
                   placeholderTextColor={tw('zinc-500')}
                   style={{
                     textAlignVertical: 'top',

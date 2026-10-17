@@ -27,10 +27,10 @@ describe('content settings', () => {
   })
 
   it('reports the features the shell owns as off', () => {
-    const settings = getContentSettings({ miniPlayer: true, translateComments: true, doubleTapToToggleHeader: true } as never)
+    const settings = getContentSettings({ miniPlayer: true, translateComments: true, tripleTapToToggleHeader: true } as never)
     expect(settings.miniPlayer).toBe(false)
     expect(settings.translateComments).toBe(false)
-    expect(settings.doubleTapToToggleHeader).toBe(false)
+    expect(settings.tripleTapToToggleHeader).toBe(false)
     expect(settings.captionStyle).toBeNull()
   })
 

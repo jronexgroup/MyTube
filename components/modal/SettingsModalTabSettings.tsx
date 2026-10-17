@@ -747,10 +747,10 @@ export const SettingsAppearanceContent = () => {
             {nIf(
               isAndroid,
               <SettingsToggleRow
-                label={t('settings.doubleTapToToggleHeader')}
+                label={t('settings.tripleTapToToggleHeader')}
                 icon="touch-app"
-                value={settings.doubleTapToToggleHeader}
-                onPress={() => settings$.doubleTapToToggleHeader.set(!settings.doubleTapToToggleHeader)}
+                value={settings.tripleTapToToggleHeader}
+                onPress={() => settings$.tripleTapToToggleHeader.set(!settings.tripleTapToToggleHeader)}
               />,
             )}
             <SettingsToggleRow
@@ -1124,7 +1124,7 @@ export const SettingsTransferContent: React.FC<{
   }
 
   const onClickExportList = async () => {
-    const filename = `NouTube_bookmarks_${Date.now()}.csv`
+    const filename = `MyTube_bookmarks_${Date.now()}.csv`
     await saveFile(filename, exportBookmarksCsv())
   }
 
@@ -1222,7 +1222,7 @@ export const SettingsTransferContent: React.FC<{
         <View className={surfaceCls}>
           <SettingsActionRow
             label={t('settings.importList')}
-            description="Plain text, copied links, or a NouTube CSV export"
+            description="Plain text, copied links, or a MyTube CSV export"
             icon="playlist-add"
             onPress={() => {
               void onClickImportList()

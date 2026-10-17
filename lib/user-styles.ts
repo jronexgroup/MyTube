@@ -239,7 +239,7 @@ export const buildUserScriptSources = (snapshot?: UserStylesSnapshot) =>
     try {
 ${script.js}
     } catch (e) {
-      console.error(${JSON.stringify('[NouTube user script] ' + script.name)}, e)
+      console.error(${JSON.stringify('[MyTube user script] ' + script.name)}, e)
     }
   };
   if (${script.runAt === 'document-start' ? 'false' : 'true'} && document.readyState === 'loading') {
@@ -251,7 +251,7 @@ ${script.js}
   )
 
 export const buildUserScriptExecutionSource = (script: Pick<CustomUserScript, 'name' | 'js'>) => {
-  return `(() => { try {\n${script.js}\n} catch (e) { console.error(${JSON.stringify('[NouTube user script run] ' + script.name)}, e) } })();`
+  return `(() => { try {\n${script.js}\n} catch (e) { console.error(${JSON.stringify('[MyTube user script run] ' + script.name)}, e) } })();`
 }
 
 const normalizeCustomUserStyle = (

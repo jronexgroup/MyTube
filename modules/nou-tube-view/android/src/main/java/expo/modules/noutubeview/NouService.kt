@@ -273,7 +273,7 @@ class NouService : Service() {
     // Metadata is null when the service got restarted and no video change has
     // happened yet; the notification must still build so ensureForeground works.
     val metadata = session.getController().getMetadata()
-    val title = metadata?.getString(MediaMetadataCompat.METADATA_KEY_TITLE) ?: "NouTube"
+    val title = metadata?.getString(MediaMetadataCompat.METADATA_KEY_TITLE) ?: "MyTube"
     val author = metadata?.getString(MediaMetadataCompat.METADATA_KEY_ARTIST) ?: ""
     val largeIcon = metadata?.getBitmap(MediaMetadataCompat.METADATA_KEY_ALBUM_ART)
     val playActionIntent =
@@ -434,7 +434,7 @@ class NouService : Service() {
 
   private fun ensureNotificationManager() {
     if (notificationManager == null) {
-      val channel = NotificationChannel(CHANNEL_ID, "NouTube", NotificationManager.IMPORTANCE_LOW)
+      val channel = NotificationChannel(CHANNEL_ID, "MyTube", NotificationManager.IMPORTANCE_LOW)
       channel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC)
 
       notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -531,7 +531,7 @@ class NouService : Service() {
       startForegroundNow(
         NotificationCompat.Builder(this, CHANNEL_ID)
           .setSmallIcon(R.drawable.icon)
-          .setContentTitle("NouTube")
+          .setContentTitle("MyTube")
           .build()
       )
       stopForeground(STOP_FOREGROUND_REMOVE)

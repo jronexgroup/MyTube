@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for your interest in contributing to [NouTube](https://github.com/nonbili/NouTube) !
+Thank you for your interest in contributing to MyTube! MyTube is based on the open-source [NouTube](https://github.com/nonbili/NouTube) project.
 
 Please read this guide before submitting changes.
 
@@ -10,7 +10,7 @@ Knowledge of JavaScript/TypeScript, React and ReactNative makes it easier to con
 
 ## Installation
 
-Here you will find instructions to install NouTube.
+Here you will find instructions to install and build MyTube.
 
 ### Prerequisites
 

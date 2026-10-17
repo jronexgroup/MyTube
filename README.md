@@ -1,31 +1,10 @@
-# <img src="desktop/icon.png" align="top" height="44"> NouTube
+# <img src="desktop/icon.png" align="top" height="44"> MyTube
 
 Android, iOS, and Desktop app for YouTube and YouTube Music.
 
-Install from F-Droid, or download APK from GitHub.
+Maintained by **Abu Huraira**.
 
-[<img src="https://img.shields.io/badge/F--Droid-1976D2?style=for-the-badge&logo=f-droid"
-    alt="Get it on F-Droid"
-    height="80">](https://f-droid.org/packages/jp.nonbili.noutube)
-[<img src="https://img.shields.io/badge/GitHub%20Releases-100000?style=for-the-badge&logo=github"
-      alt="Get it on GitHub"
-      hspace="16"
-      height="50">](https://github.com/nonbili/NouTube/releases/latest)
-[<img src="https://img.shields.io/badge/TestFlight-0D96F6?style=for-the-badge&logo=appstore&logoColor=white"
-    alt="Join the iOS beta on TestFlight"
-    height="50">](https://testflight.apple.com/join/kkUdF2hV)
-
-Find Linux, macOS, Windows versions in [NouTube-Desktop](https://github.com/nonbili/NouTube-Desktop).
-
-Or use the browser extension on Firefox and Chrome.
-
-[<img src="https://img.shields.io/badge/Firefox%20Add--ons-FF7139?style=for-the-badge&logo=firefoxbrowser&logoColor=white"
-    alt="Get it on Firefox Add-ons"
-    height="50">](https://addons.mozilla.org/addon/noutube/)
-[<img src="https://img.shields.io/badge/Chrome%20Web%20Store-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white"
-      alt="Get it on Chrome Web Store"
-      hspace="16"
-      height="50">](https://chromewebstore.google.com/detail/noutube/cpmippodfdmialcoaegbbmhpdamodoif)
+MyTube is based on the open-source [NouTube](https://github.com/nonbili/NouTube) project and is licensed under the AGPL-3.0.
 
 ## Features
 
@@ -54,10 +33,10 @@ Or use the browser extension on Firefox and Chrome.
 
 You can find [contributing instructions here](/CONTRIBUTING.md)
 
-## Translation
+## Credits
 
-Translation is supported by [Weblate](https://hosted.weblate.org/projects/noutube).
+MyTube would not exist without the original [NouTube](https://github.com/nonbili/NouTube) project by Nonbili Inc. and its contributors.
 
 ## Note
 
-We're not affiliated with any .org websites.
+We're not affiliated with YouTube, Google, or any .org websites.

@@ -72,7 +72,7 @@ export async function syncUserScripts(userStyles: UserStylesSnapshot) {
     )
     return true
   } catch (error) {
-    console.error('NouTube user scripts:', error)
+    console.error('MyTube user scripts:', error)
     return false
   }
 }

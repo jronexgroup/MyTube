@@ -20,7 +20,7 @@ const rewriteRootAliases = {
     if (!id.startsWith(rootDir) || id.includes('node_modules')) {
       return
     }
-    return code.replaceAll("'@/", "'noutube-root/").replaceAll('"@/', '"noutube-root/')
+    return code.replaceAll("'@/", "'mytube-root/").replaceAll('"@/', '"mytube-root/')
   },
 }
 
@@ -98,7 +98,7 @@ export default defineConfig({
     ],
     resolve: {
       alias: {
-        'noutube-root': rootDir,
+        'mytube-root': rootDir,
         'expo-modules-core-polyfill': resolve(rootDir, 'node_modules/expo-modules-core/src/polyfill/index.web.ts'),
       },
     },
@@ -127,7 +127,7 @@ export default defineConfig({
     ],
   },
   manifest: ({ browser }) => ({
-    name: 'NouTube',
+    name: 'MyTube',
     description: 'Make YouTube yours with cleaner browsing, enhanced playback, personalized feeds, bookmarks, and powerful customization tools.',
     icons: { 16: 'icon/16.png', 32: 'icon/32.png', 48: 'icon/48.png', 128: 'icon/128.png' },
     permissions: ['storage', 'userScripts', 'alarms', 'identity', 'contextMenus'],

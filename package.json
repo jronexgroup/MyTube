@@ -3,8 +3,9 @@
     "desktop",
     "extension"
   ],
-  "name": "noutube",
+  "name": "mytube",
   "private": true,
+  "author": "Abu Huraira",
   "main": "index.js",
   "version": "0.7.3",
   "versionCode": 83,

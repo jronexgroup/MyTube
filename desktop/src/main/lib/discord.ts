@@ -142,7 +142,7 @@ class DiscordGateway {
             token: this.token,
             capabilities: 65,
             compress: false,
-            properties: { os: 'Windows', browser: 'Discord Client', device: 'noutube' },
+            properties: { os: 'Windows', browser: 'Discord Client', device: 'MyTube' },
           })
         }
         break

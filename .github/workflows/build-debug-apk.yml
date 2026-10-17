@@ -1,0 +1,39 @@
+name: Build Debug APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: install and prebuild
+        run: |
+          bun link
+          bun install --frozen-lockfile
+          bun bundle:es
+          bun expo prebuild -p android --clean --no-install
+
+      - name: build debug apk
+        run: ./gradlew assembleFullDebug
+        working-directory: android
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mytube-debug-apk
+          path: android/app/build/outputs/apk/full/debug/*.apk
+          if-no-files-found: error

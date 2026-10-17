@@ -77,7 +77,7 @@ export const NouHeader: React.FC<{ getNoutube: () => any }> = ({ getNoutube }) =
   const tw = useTwColor()
   const autoHideHeader = useValue(settings$.autoHideHeader)
   const autoHideSidebar = useValue(settings$.autoHideSidebar)
-  const doubleTapToToggleHeader = useValue(settings$.doubleTapToToggleHeader)
+  const tripleTapToToggleHeader = useValue(settings$.tripleTapToToggleHeader)
   const hideToolbarWhenScrolled = useValue(settings$.hideToolbarWhenScrolled)
   const headerPosition = useValue(settings$.headerPosition)
   const playbackRate = useValue(settings$.playbackRate)
@@ -206,7 +206,7 @@ export const NouHeader: React.FC<{ getNoutube: () => any }> = ({ getNoutube }) =
 
   const { Root, style: animatedStyle } = useHeaderAnimation({
     autoHideHeader,
-    doubleTapToToggleHeader: isAndroid && doubleTapToToggleHeader,
+    tripleTapToToggleHeader: isAndroid && tripleTapToToggleHeader,
     headerHeight,
     headerPosition,
     headerShown,
@@ -241,17 +241,17 @@ export const NouHeader: React.FC<{ getNoutube: () => any }> = ({ getNoutube }) =
     Number(showStarButton) +
     Number(pinnedScripts.length > 0)
   const compactToolbar = leadingToolbarItemCount + trailingToolbarItemCount > 6
-  const hideableHeader = autoHideHeader || hideToolbarWhenScrolled || (isAndroid && doubleTapToToggleHeader)
+  const hideableHeader = autoHideHeader || hideToolbarWhenScrolled || (isAndroid && tripleTapToToggleHeader)
 
   const runPinnedScript = (script: (typeof pinnedScripts)[number]) => {
     const webview = getNoutube()
     const source = buildUserScriptExecutionSource(script)
     try {
       void Promise.resolve(webview?.executeJavaScript?.(source)).catch((error) => {
-        console.error('[NouTube user script execute] ' + script.name, error)
+        console.error('[MyTube user script execute] ' + script.name, error)
       })
     } catch (error) {
-      console.error('[NouTube user script execute] ' + script.name, error)
+      console.error('[MyTube user script execute] ' + script.name, error)
     }
   }
 
@@ -266,7 +266,7 @@ export const NouHeader: React.FC<{ getNoutube: () => any }> = ({ getNoutube }) =
           autoHideSidebar &&
           'lg:fixed lg:left-0 lg:top-0 lg:bottom-0 lg:z-20 lg:w-14 lg:-translate-x-12 lg:opacity-0 lg:shadow-xl lg:transition lg:duration-200 lg:ease-out lg:hover:translate-x-0 lg:hover:opacity-100 lg:focus-within:translate-x-0 lg:focus-within:opacity-100',
         hideableHeader &&
-          (!isSidebarLayout || (isAndroid && doubleTapToToggleHeader)) &&
+          (!isSidebarLayout || (isAndroid && tripleTapToToggleHeader)) &&
           clsx('absolute left-0 right-0 z-10', headerPosition === 'bottom' ? 'bottom-0' : 'top-0'),
       )}
     >

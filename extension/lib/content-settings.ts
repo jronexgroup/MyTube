@@ -15,12 +15,12 @@ export const getContentSettings = (settings: RawSettings): ContentSettings => ({
   blockAds: bool(settings?.blockAds, true),
   playbackRate: typeof settings?.playbackRate === 'number' ? settings.playbackRate : 1,
   playbackQuality: typeof settings?.playbackQuality === 'string' ? settings.playbackQuality : 'auto',
-  // The mini player, the double-tap gesture, on-device translation and system
+  // The mini player, the triple-tap gesture, on-device translation and system
   // caption styles are all driven by the native shell.
   miniPlayer: false,
   showDislikes: bool(settings?.showDislikes),
   showOriginalVideoTitle: bool(settings?.showOriginalVideoTitle),
-  doubleTapToToggleHeader: false,
+  tripleTapToToggleHeader: false,
   translateComments: false,
   replaceWatchNavigation: bool(settings?.replaceWatchNavigation),
   captionStyle: null,

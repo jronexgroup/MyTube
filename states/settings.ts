@@ -11,7 +11,7 @@ export interface SettingsSnapshot {
 
   autoHideHeader: boolean
   autoHideSidebar: boolean
-  doubleTapToToggleHeader: boolean
+  tripleTapToToggleHeader: boolean
   translateComments: boolean
   translationTargetLanguage: string | null
   hideToolbarWhenScrolled: boolean
@@ -168,8 +168,8 @@ export const normalizeSettings = <T extends Partial<SettingsSnapshot> | undefine
   if (typeof data.autoHideSidebar !== 'boolean') {
     data.autoHideSidebar = false
   }
-  if (typeof data.doubleTapToToggleHeader !== 'boolean') {
-    data.doubleTapToToggleHeader = false
+  if (typeof data.tripleTapToToggleHeader !== 'boolean') {
+    data.tripleTapToToggleHeader = true
   }
   if (typeof data.translateComments !== 'boolean') {
     data.translateComments = false
@@ -217,7 +217,8 @@ export const getSettingsSnapshot = (value: Partial<Store> | undefined = settings
 
   autoHideHeader: Boolean(value?.autoHideHeader),
   autoHideSidebar: Boolean(value?.autoHideSidebar),
-  doubleTapToToggleHeader: Boolean(value?.doubleTapToToggleHeader),
+  tripleTapToToggleHeader:
+    typeof value?.tripleTapToToggleHeader === 'boolean' ? value.tripleTapToToggleHeader : true,
   translateComments: Boolean(value?.translateComments),
   translationTargetLanguage:
     typeof value?.translationTargetLanguage === 'string' && value.translationTargetLanguage.trim()
@@ -292,7 +293,7 @@ export const settings$ = observable<Store>({
 
   autoHideHeader: false,
   autoHideSidebar: false,
-  doubleTapToToggleHeader: false,
+  tripleTapToToggleHeader: true,
   translateComments: false,
   translationTargetLanguage: null,
   hideToolbarWhenScrolled: false,

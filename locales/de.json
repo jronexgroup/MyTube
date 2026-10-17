@@ -203,15 +203,15 @@
       "hint": "Sprache auswählen oder Systemsprache folgen."
     },
     "importSettings": "Einstellungen importieren",
-    "importSettingsDescription": "Einstellungen aus einer NouTube-Einstellungsdatei wiederherstellen",
+    "importSettingsDescription": "Einstellungen aus einer MyTube-Einstellungsdatei wiederherstellen",
     "importSettingsDone": "Importiert: {{sections}}",
     "exportSettings": "Einstellungen exportieren",
     "groupYouTube": "YouTube",
-    "groupNouTube": "NouTube",
+    "groupNouTube": "MyTube",
     "preferencesComments": "Kommentare",
     "sidebar": "Seitenleiste",
     "preferencesYouTubeHint": "YouTube-Voreinstellungen",
-    "preferencesNouTubeHint": "NouTube-Voreinstellungen"
+    "preferencesNouTubeHint": "MyTube-Voreinstellungen"
   },
   "sync": {
     "label": "Synchronisieren",
